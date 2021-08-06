@@ -3,14 +3,19 @@
 #' Generalized q - von Bertalanffy growth function
 #' (Manabe et al. 2018. PLoS ONE 13(6):e0199346)
 #'
-#' @param Lhat Initial parameter for L_hat; Growth scale factors
-#' @param r Initial parameter for r; Growth exponents
-#' @param q Initial parameter for q; Growth indeterminacy timing parameter
-#' @param tau Initial parameter for tau; Maturation timing parameter
-#' @param t0 Initial parameter for t0; Theoretical age at size zero
+#' @param age Numerical age value(s) in year to estimate the length
+#' @param p List of growth parameters
+#'  \describe{
+#'    \item{Lhat}{Growth parameter that set the size at inflection point}
+#'    \item{r}{Growth paramter that shapes the initial growth pattern}
+#'    \item{q}{Energy allocation parameter for reproduction.
+#'    Determinate growth is described when q < 1 and Indeterminate growth is
+#'    described when q > 1. In addition, q must not be 1.}
+#'    \item{tau}{Timing of maturity coefficient.}
+#'    \item{t_0}{Theoretical body size at 0}
+#'  }
 #'
-#'
-#' @return vector of size at given age
+#' @return Estimated length at age in vector
 #' @export
 #'
 #' @examples
