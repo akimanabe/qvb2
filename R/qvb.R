@@ -1,6 +1,7 @@
-# R script for fitting the generalized q-VBGF (Manabe et al. 2018. PLoS ONE 13(6):e0199346)
+# R script for fitting the generalized q-VBGF
 
 #' Generalized q - von Bertalanffy growth function
+#' (Manabe et al. 2018. PLoS ONE 13(6):e0199346)
 #'
 #' @param Lhat Initial parameter for L_hat; Growth scale factors
 #' @param r Initial parameter for r; Growth exponents
@@ -19,10 +20,20 @@
 #' }
 
 qvb <-
-  function(age, p = list(Lhat, r, q, tau, t_0)){
+  function(age, p = list(Lhat, r, q, tau, t_0)) {
+
+    assertthat::assert_that(length(p) == 5,
+                            msg = "All five parameters needs to have a value.")
+
+    assertthat::assert_that(is.numeric(age),
+                            msg = "Age must be numeric.")
+
+    assertthat::assert_that(is.numeric(unlist(p)),
+                            msg = "Parameters must be numeric.")
 
     names(p) <- c("Lhat", "r", "q", "tau", "t_0")
 
-    p$Lhat * p$tau^p$r * (1- (pmax(0,1-(1-p$q)*(age-p$t_0)/p$tau))^(1/(1-p$q)) )^p$r
+    p$Lhat * p$tau^p$r * (1 - (pmax(
+      0, 1 - (1 - p$q) * (age - p$t_0) / p$tau)) ^ (1 / (1 - p$q)))^p$r
 
   }
