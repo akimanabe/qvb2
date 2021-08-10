@@ -36,6 +36,9 @@ qvb <-
     assertthat::assert_that(is.numeric(unlist(p)),
                             msg = "Parameters must be numeric.")
 
+    assertthat::assert_that(p[[3]] != 1,
+                            msg = "Parameter 'q' must not be 1.")
+
     names(p) <- c("Lhat", "r", "q", "tau", "t_0")
 
     p$Lhat * p$tau^p$r * (1 - (pmax(
