@@ -37,3 +37,11 @@ test_that("function stops and give message
     "All five parameters needs to have a value."
   )
 })
+
+test_that("function warns when q = 1 is used", {
+  expect_error(
+    qvb(2,
+        p = list(100, 1, 1, 2, 0)),
+    "Parameter 'q' must not be 1."
+  )
+})
