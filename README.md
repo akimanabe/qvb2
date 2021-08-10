@@ -5,3 +5,4 @@ New qvb growth function package
 | Version | Update |
 | ------- | ------ |
 | 0.1.0 | Add `qvb` function |
+| 0.1.1 | Prevent using q = 1 |
