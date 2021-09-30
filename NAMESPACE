@@ -2,4 +2,5 @@
 
 export("%>%")
 export(qvb)
+export(qvb_gonad)
 importFrom(magrittr,"%>%")
